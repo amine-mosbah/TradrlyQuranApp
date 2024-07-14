@@ -1,5 +1,5 @@
 # TradrlyQuranApp
-A built with react native for a first year internship.
+A Quran app built with react native for a first year internship.
 Cahier de charge:
  
 Cahier des charges pour une application de lecture et
