@@ -1,6 +1,6 @@
 import { View } from "react-native";
 
-export default function test() {
+export default function Adhkar() {
 
 
   return (

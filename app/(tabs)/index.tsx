@@ -1,15 +1,19 @@
-import { Text, View, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { Text, View, TouchableOpacity, Image } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import dayjs from 'dayjs';
 import { useEffect, useState } from "react";
 import 'dayjs/locale/ar';
 import moment from "moment-hijri";
-import { styles } from "./indexStyles";
+import { styles } from "./styles/indexStyles";
+import { useRouter } from "expo-router";
+
 
 moment.locale("ar");
 dayjs.locale('ar');
 
 export default function Index() {
+  const router = useRouter();
+
   const [currentDateTime, setCurrentDateTime] = useState(dayjs());
 
   useEffect(() => {
@@ -30,11 +34,11 @@ export default function Index() {
   };
 
   const items = [
-    { text: 'قـراءة', image: require('@/assets/images/kiraa.png') },
-    { text: 'تـرتيل', image: require('@/assets/images/tertil.png') },
-    { text: 'أذكـار', image: require('@/assets/images/adhkar.png') },
-    { text: 'مواعيد الصلاة', image: require('@/assets/images/prayerTime.png') },
-    { text: 'منـتدى التـفاعـل ', image: require('@/assets/images/forum.png') },
+    { text: 'قـراءة', image: require('@/assets/images/homePage/kiraa.png'), press:'kiraa'},
+    { text: 'تـرتيل', image: require('@/assets/images/homePage/tertil.png') , press:'tertil'},
+    { text: 'أذكـار', image: require('@/assets/images/homePage/adhkar.png') , press:'adhkar'},
+    { text: 'مواعيد الصلاة', image: require('@/assets/images/homePage/prayerTime.png') , press:'prayerTime'},
+    { text: 'منـتدى التـفاعـل ', image: require('@/assets/images/homePage/forum.png') , press:'forum'},
   ];
 
   return (
@@ -48,8 +52,10 @@ export default function Index() {
         <TouchableOpacity
           key={index}
           style={[
-            styles.button,index === items.length - 1 && styles.lastButton,]}>
-          <LinearGradient colors={['#E4F1FA', '#B3D8F1']} style={styles.gradient}>
+            styles.button,index === items.length - 1 && styles.lastButton,]}
+            onPress={() => router.push(item.press)}
+            >
+          <LinearGradient colors={['#E4F1FA', '#B3D8F1']} style={styles.gradient} >
             <View style={styles.insideButton}>
               <Text style={[styles.text, index === items.length - 1 && styles.lastButtonText]}>{item.text}</Text>
               <Image source={item.image} style={[styles.image,index === items.length - 1 && styles.lastButtonImage]}></Image>
