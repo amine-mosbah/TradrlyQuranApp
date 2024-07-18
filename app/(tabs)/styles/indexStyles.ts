@@ -57,7 +57,7 @@ export const styles = StyleSheet.create({
       height: 2,
       width: '100%',
       backgroundColor: '#CED0CE',
-      marginVertical: 30,
+      marginVertical: 25,
     },
     
   });
