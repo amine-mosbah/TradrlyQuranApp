@@ -4,9 +4,8 @@ import dayjs from 'dayjs';
 import { useEffect, useState } from "react";
 import 'dayjs/locale/ar';
 import moment from "moment-hijri";
-import { styles } from "./styles/indexStyles";
+import { styles } from "./(tabs)/styles/indexStyles";
 import { useRouter } from "expo-router";
-
 
 moment.locale("ar");
 dayjs.locale('ar');

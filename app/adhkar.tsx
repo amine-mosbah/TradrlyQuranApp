@@ -1,10 +1,10 @@
 import { View } from "react-native";
-
 export default function Adhkar() {
 
 
   return (
     <View >
+
     </View>
   );
 }
