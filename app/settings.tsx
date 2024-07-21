@@ -1,10 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function sheikhSoura() {
+const settings = () => {
   return (
-    <View >
-      <Text>sheikhSoura</Text>
+    <View>
+      <Text>settings</Text>
     </View>
   )
 }
+
+export default settings

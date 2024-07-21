@@ -1,11 +1,12 @@
-import { Text, View, TouchableOpacity, Image } from "react-native";
+import { Text, View, TouchableOpacity, Image, SafeAreaView } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import dayjs from 'dayjs';
 import { useEffect, useState } from "react";
 import 'dayjs/locale/ar';
 import moment from "moment-hijri";
-import { styles } from "./(tabs)/styles/indexStyles";
+import { styles } from "./styles/indexStyles";
 import { useRouter } from "expo-router";
+
 
 moment.locale("ar");
 dayjs.locale('ar');
@@ -41,7 +42,7 @@ export default function Index() {
   ];
 
   return (
-<View style={{flex:1, flexDirection:'column'}}>
+<SafeAreaView style={{flex:1, flexDirection:'column'}}>
   <Text style={{textAlign:'center', color: "#000",fontSize: 30,fontWeight: '600', paddingTop:20}}>{formatTime(currentDateTime )}</Text>
     <Text style={{textAlign:'center', color: "#000",fontSize: 15,fontWeight: '600', paddingTop:5}}>{formatDate(currentDateTime )}</Text>
     <View style={styles.separator} />
@@ -63,8 +64,7 @@ export default function Index() {
         </TouchableOpacity>
       ))}
     </View>
-    </View>
+    </SafeAreaView>
   );
 }
-
 

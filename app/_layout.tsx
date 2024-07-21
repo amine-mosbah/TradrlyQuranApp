@@ -1,20 +1,21 @@
-import { Stack, Tabs } from "expo-router";
-const _layout = () => {
+import { View, Text } from 'react-native'
+import React from 'react'
+import { Stack } from 'expo-router'
+import CustomHeader from '@/components/navigation/customHeader'
+
+const Layout =()=> {
   return (
-<Stack >
-<Stack.Screen  name="index"  />
-
-  <Stack.Screen  name="tabNavigation"  />
-
-      <Stack.Screen  name="kiraa" />
-
-      <Stack.Screen  name="tertil" />
-
-      <Stack.Screen  name="adhkar" />
-      <Stack.Screen  name="prayerTime" />
-      <Stack.Screen  name="forum" />
+    <Stack screenOptions={{headerShown:false}}>
+    <Stack.Screen name="(tabs)" />
+    <Stack.Screen name="settings" options={{ headerShown:true, header: () => (
+            <CustomHeader title="إعدادات" showBackButton={true} showSearchButton={false}/>
+          ),
+        }}/>
+    <Stack.Screen name="notifications" options={{headerShown:true, header: () => (
+            <CustomHeader title="تنبيهات" showBackButton={true} showSearchButton={false}/>
+          ),
+        }} />
     </Stack>
-  );
+  )
 }
-export default _layout;
-
+export default  Layout

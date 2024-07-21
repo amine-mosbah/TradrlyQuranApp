@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { SearchBar } from 'react-native-screens';
-
+import SurahStarIcon from '@/components/surahStarIcon';
+import { surahs } from '../data/Sourah';
 
 function Juz() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-<SearchBar></SearchBar>
+      <Text>جزء</Text>
     </View>
   );
 }
@@ -22,9 +22,15 @@ function Hizb() {
 
 function Soura() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>سورة</Text>
-    </View>
+    <FlatList
+        data={surahs}
+        renderItem={({ item }) => <SurahStarIcon number={item.id} name={item.name}/>}
+        keyExtractor={item => item.id.toString()}
+        ItemSeparatorComponent={() => <View style={{height: 1,
+          width: '85%',
+          backgroundColor: '#CED0CE',
+          alignSelf: 'center',}} />}
+      />
   );
 }
 

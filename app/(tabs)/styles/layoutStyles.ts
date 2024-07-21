@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         backgroundColor: "#34495E",
-        height: 120,
+        height: 110,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
@@ -17,11 +17,11 @@ export const styles = StyleSheet.create({
       menu: {
         position: "absolute",
         left: 10,
-        top: 67,
+        top: 60,
       },
       search: {
         position: "absolute",
         right: 10,
-        top: 68,
+        top: 61,
       },
 })
