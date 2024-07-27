@@ -6,15 +6,18 @@ import 'dayjs/locale/ar';
 import moment from "moment-hijri";
 import { styles } from "./styles/indexStyles";
 import { useRouter } from "expo-router";
-
+import SplashScreen from "@/components/splashScreen";
 
 moment.locale("ar");
 dayjs.locale('ar');
 
 export default function Index() {
   const router = useRouter();
-
   const [currentDateTime, setCurrentDateTime] = useState(dayjs());
+
+
+
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -42,7 +45,8 @@ export default function Index() {
   ];
 
   return (
-<SafeAreaView style={{flex:1, flexDirection:'column'}}>
+
+  <SafeAreaView style={{flex:1, flexDirection:'column'}}>
   <Text style={{textAlign:'center', color: "#000",fontSize: 30,fontWeight: '600', paddingTop:20}}>{formatTime(currentDateTime )}</Text>
     <Text style={{textAlign:'center', color: "#000",fontSize: 15,fontWeight: '600', paddingTop:5}}>{formatDate(currentDateTime )}</Text>
     <View style={styles.separator} />
@@ -66,5 +70,6 @@ export default function Index() {
     </View>
     </SafeAreaView>
   );
+  
 }
 
