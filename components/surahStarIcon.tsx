@@ -2,19 +2,18 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useRouter } from 'expo-router';
 
-export default function SurahStarIcon({ number, name }: { number: number; name: string }) {
+export default function SurahStarIcon({ name, audio,number, surahName,image }: {name:string,audio:any, number: number; surahName: string,image:any }) {
+  const router=useRouter();
   return (
-
-
-
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => router.push({ pathname: '/surahPlay', params: { name, audio, number,surahName,image } })}>
         <Ionicons name='play' size={15} color='#000' />
       </TouchableOpacity>
 
       <View style={styles.textContainer}>
-        <Text style={styles.text}>{name}</Text>
+        <Text style={styles.text}>{surahName}</Text>
         <View style={styles.starContainer}>
           <Image source={require('@/assets/images/surahStar.png')} style={styles.starImage} />
           <Text style={styles.surahNumber}>{number}</Text>
@@ -67,7 +66,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   surahNumber: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: 'bold',
   }
 });

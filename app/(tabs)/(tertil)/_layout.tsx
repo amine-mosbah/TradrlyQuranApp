@@ -13,6 +13,10 @@ const _layout = () => {
             <CustomHeader title="تــرتـيـل"  showBackButton={true} showSearchButton={true} />
           ),
         }}/>
+        <Stack.Screen name="surahPlay" options={{header: () => (
+            <CustomHeader title="تــرتـيـل"  showBackButton={true} showSearchButton={false} />
+          ),
+        }}/>
     </Stack>
   );
 }

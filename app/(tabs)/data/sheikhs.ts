@@ -1,10 +1,10 @@
 export const sheikhs = [
 {
     id:1, 
-    name: 'عبد الرحمن السديس',
-    image: require('@/assets/images/sheikhs/a.png'),
+    name: 'عبد العزيز سحيم',
+    image: require('@/assets/images/sheikhs 2.0/عبد العزيز سحيم.jpg'),
     surah:[
-        {id:1,name:'الفاتحة',},
+        {id:1,name:'الفاتحة', audio:require('@/assets/audio/maherMaiqliFetiha.mp3')},
         {id:2,name:'البقرة',},
         {id:3,name:'آل عمران',},
         {id:4,name:'النساء',},
@@ -23,8 +23,8 @@ export const sheikhs = [
 },
 {
     id:2, 
-    name: 'سعد الغامدي',
-    image: require('@/assets/images/sheikhs/b.png'),
+    name: 'عبدالله كامل',
+    image: require('@/assets/images/sheikhs 2.0/عبدالله كامل.jpg'),
     surah:[
         {id:1,name:'الفاتحة',},
         {id:2,name:'البقرة',},
@@ -45,8 +45,8 @@ export const sheikhs = [
 },
 {
     id:3, 
-    name: 'مشاري بن راشد العفاسي',
-    image: require('@/assets/images/sheikhs/c.png'),
+    name: 'محمد الفقيه',
+    image: require('@/assets/images/sheikhs 2.0/محمد الفقيه.jpg'),
     surah:[
         {id:1,name:'الفاتحة',},
         {id:2,name:'البقرة',},
@@ -67,8 +67,8 @@ export const sheikhs = [
 },
 {
     id:4, 
-    name: 'ماهر المعيقلي',
-    image: require('@/assets/images/sheikhs/d.png'),
+    name: 'محمد الكردي',
+    image: require('@/assets/images/sheikhs 2.0/محمد الكردي.jpg'),
     surah:[
         {id:1,name:'الفاتحة',},
         {id:2,name:'البقرة',},
@@ -89,8 +89,8 @@ export const sheikhs = [
 },
 {
     id:5, 
-    name: 'عبد الباسط عبد الصمد',
-    image: require('@/assets/images/sheikhs/e.png'),
+    name: 'محمد صديق المنشاوي',
+    image: require('@/assets/images/sheikhs 2.0/محمد صديق المنشاوي.jpg'),
     surah:[
         {id:1,name:'الفاتحة',},
         {id:2,name:'البقرة',},
@@ -111,8 +111,8 @@ export const sheikhs = [
 },
 {
     id:6, 
-    name: 'أحمد بن علي العجمي',
-    image: require('@/assets/images/sheikhs/f.png'),
+    name: 'محمود خليل الحصري',
+    image: require('@/assets/images/sheikhs 2.0/محمود خليل الحصري.jpg'),
     surah:[
         {id:1,name:'الفاتحة',},
         {id:2,name:'البقرة',},
@@ -133,8 +133,8 @@ export const sheikhs = [
 },
 {
     id:7, 
-    name: 'سعود الشريم',
-    image: require('@/assets/images/sheikhs/g.png'), 
+    name: 'هزاع البلوشي',
+    image: require('@/assets/images/sheikhs 2.0/هزاع البلوشي.jpg'), 
     surah:[
         {id:1,name:'الفاتحة',},
         {id:2,name:'البقرة',},
@@ -153,48 +153,5 @@ export const sheikhs = [
         {id:15,name:'الحجر',},
         ]  
 },
-{
-    id:8, 
-    name: 'محمود خليل الحصري',
-    image: require('@/assets/images/sheikhs/h.png'),
-    surah:[
-        {id:1,name:'الفاتحة',},
-        {id:2,name:'البقرة',},
-        {id:3,name:'آل عمران',},
-        {id:4,name:'النساء',},
-        {id:5,name:'المائدة',},
-        {id:6,name:'الأنعام',},
-        {id:7,name:'الأعراف',},
-        {id:8,name:'الأنفال',},
-        {id:9,name:'التوبة',},
-        {id:10,name:'يونس',},
-        {id:11,name:'هود',},
-        {id:12,name:'يوسف',},
-        {id:13,name:'الرعد',},
-        {id:14,name:'إبراهيم',},
-        {id:15,name:'الحجر',},
-        ]
-},
-{
-    id:9, 
-    name: 'أبو بكر الشاطري',
-    image: require('@/assets/images/sheikhs/i.png'),
-    surah:[
-        {id:1,name:'الفاتحة',},
-        {id:2,name:'البقرة',},
-        {id:3,name:'آل عمران',},
-        {id:4,name:'النساء',},
-        {id:5,name:'المائدة',},
-        {id:6,name:'الأنعام',},
-        {id:7,name:'الأعراف',},
-        {id:8,name:'الأنفال',},
-        {id:9,name:'التوبة',},
-        {id:10,name:'يونس',},
-        {id:11,name:'هود',},
-        {id:12,name:'يوسف',},
-        {id:13,name:'الرعد',},
-        {id:14,name:'إبراهيم',},
-        {id:15,name:'الحجر',},
-        ]
-}
+
 ]

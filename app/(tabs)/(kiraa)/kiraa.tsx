@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { FlatList, Text, View } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import SurahStarIcon from '@/components/surahStarIcon';
 import { surahs } from '../data/Sourah';
+import Surahs from '@/components/surahs';
 
 function Juz() {
   return (
@@ -24,7 +24,7 @@ function Soura() {
   return (
     <FlatList
         data={surahs}
-        renderItem={({ item }) => <SurahStarIcon number={item.id} name={item.name}/>}
+        renderItem={({ item }) => <Surahs number={item.id} surahName={item.name}  />}
         keyExtractor={item => item.id.toString()}
         ItemSeparatorComponent={() => <View style={{height: 1,
           width: '85%',

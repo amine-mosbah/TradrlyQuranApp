@@ -18,7 +18,7 @@ export default function SheikhSoura() {
       <View style={{height:30}}></View>
       <FlatList
         data={sheikh.surah}
-        renderItem={({ item }) => <SurahStarIcon number={item.id} name={item.name}/>}
+        renderItem={({ item }) => <SurahStarIcon number={item.id} surahName={item.name} name={sheikh.name} audio={item.audio} image={image}/>}
         keyExtractor={item => item.id.toString()}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
       />
@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
   image: {
     width: 150,
     height: 150,
-    top:20
+    top:20,
+    borderRadius: 100,
   },
   text: {
     fontSize: 16,
