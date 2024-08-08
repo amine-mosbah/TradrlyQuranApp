@@ -4,17 +4,25 @@ import { StyleSheet } from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
 
-export default function Surahs({ number, surahName }: {number: string; surahName: string }) {
+export default function Surahs({ number, surahName ,type,verses}: {number: number; surahName: string,type:any,verses:any}) {
   const router=useRouter();
   return (
     <TouchableOpacity style={styles.container} onPress={() => router.push({ pathname: '/surahRead', params: { number,surahName } })}>
       <View style={styles.textContainer}>
+        <View style={{flexDirection:'column',alignItems: 'flex-end'}}>
         <Text style={styles.text}>{surahName}</Text>
+        <View style={{ flexDirection:'row'}}>
+        <Text > . {verses}</Text>
+        <Text >{type}</Text>
+        </View>
+        </View>
+
         <View style={styles.starContainer}>
           <Image source={require('@/assets/images/surahStar.png')} style={styles.starImage} />
           <Text style={styles.surahNumber}>{number}</Text>
         </View>
       </View>
+      
     </TouchableOpacity>
     
 
@@ -24,9 +32,8 @@ export default function Surahs({ number, surahName }: {number: string; surahName
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
     marginVertical: 15,
     width: '100%',
     paddingHorizontal: 25,
@@ -37,7 +44,6 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    paddingLeft: 10,
     fontSize: 20,
     color: '#5DADE2',
     fontWeight: 'bold',
