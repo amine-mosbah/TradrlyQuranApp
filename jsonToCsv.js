@@ -1,4 +1,7 @@
-export const surahs = [
+const fs = require('fs');
+const { Parser } = require('json2csv');
+
+const surahs = [
     { id: 1, name: "الفاتحة", type: "Meccan", verses: 7 },
     { id: 2, name: "البقرة", type: "Medinan", verses: 286 },
     { id: 3, name: "آل عمران", type: "Medinan", verses: 200 },
@@ -114,3 +117,177 @@ export const surahs = [
     { id: 113, name: "الفلق", type: "Meccan", verses: 5 },
     { id: 114, name: "الناس", type: "Meccan", verses: 6 }
 ];
+
+const sheikhs=[
+    {
+        id:1, 
+        name: 'عبد العزيز سحيم',
+        image: 'Abdulaziz_Suhaim.jpg',
+    },
+    {
+        id:2, 
+        name: 'عبدالله كامل',
+        image: 'Abdullah_Kamel.jpg',
+    },
+    {
+        id:3, 
+        name: 'محمد الفقيه',
+        image: 'Mohamed_Alfakih.jpg',
+    },
+    {
+        id:4, 
+        name: 'محمد الكردي',
+        image: 'Mohamed_Alkurdi.jpg',
+    },
+    {
+        id:5, 
+        name: 'محمد صديق المنشاوي',
+        image: 'Mohamed_Sadik_Almanchewi.jpg',
+    },
+    {
+        id:6, 
+        name: 'محمود خليل الحصري',
+        image: 'Mahmoud_Khalil_Alhasri.jpg',
+    },
+    {
+        id:7, 
+        name: 'هزاع البلوشي',
+        image: 'Hazaa_Albalouchi.jpg',   
+    },
+]
+
+const surahsAudio = [
+    {id: 1,sheikh_id:1,name:'الفاتحة', audio:'Alfatiha.mp3'},
+        {id: 2,sheikh_id:1,name:'البقرة',},
+        {id: 3,sheikh_id:1,name:'آل عمران',},
+        {id: 4,sheikh_id:1,name:'النساء',},
+        {id: 5,sheikh_id:1,name:'المائدة',},
+        {id: 6,sheikh_id:1,name:'الأنعام',},
+        {id: 7,sheikh_id:1,name:'الأعراف',},
+        {id: 8,sheikh_id:1,name:'الأنفال',},
+        {id: 9,sheikh_id:1,name:'التوبة',},
+        {id: 10,sheikh_id:1,name:'يونس',},
+        {id: 11,sheikh_id:1,name:'هود',},
+        {id: 12,sheikh_id:1,name:'يوسف',},
+        {id: 13,sheikh_id:1,name:'الرعد',},
+        {id: 14,sheikh_id:1,name:'إبراهيم',},
+        {id: 15,sheikh_id:1,name:'الحجر',},
+
+        {id: 1,sheikh_id:2,name:'الفاتحة', },
+        {id: 2,sheikh_id:2,name:'البقرة',},
+        {id: 3,sheikh_id:2,name:'آل عمران',},
+        {id: 4,sheikh_id:2,name:'النساء',},
+        {id: 5,sheikh_id:2,name:'المائدة',},
+        {id: 6,sheikh_id:2,name:'الأنعام',},
+        {id: 7,sheikh_id:2,name:'الأعراف',},
+        {id: 8,sheikh_id:2,name:'الأنفال',},
+        {id: 9,sheikh_id:2,name:'التوبة',},
+        {id: 10,sheikh_id:2,name:'يونس',},
+        {id: 11,sheikh_id:2,name:'هود',},
+        {id: 12,sheikh_id:2,name:'يوسف',},
+        {id: 13,sheikh_id:2,name:'الرعد',},
+        {id: 14,sheikh_id:2,name:'إبراهيم',},
+        {id: 15,sheikh_id:2,name:'الحجر',},
+
+        {id: 1,sheikh_id:3,name:'الفاتحة',},
+        {id: 2,sheikh_id:3,name:'البقرة',},
+        {id: 3,sheikh_id:3,name:'آل عمران',},
+        {id: 4,sheikh_id:3,name:'النساء',},
+        {id: 5,sheikh_id:3,name:'المائدة',},
+        {id: 6,sheikh_id:3,name:'الأنعام',},
+        {id: 7,sheikh_id:3,name:'الأعراف',},
+        {id: 8,sheikh_id:3,name:'الأنفال',},
+        {id: 9,sheikh_id:3,name:'التوبة',},
+        {id: 10,sheikh_id:3,name:'يونس',},
+        {id: 11,sheikh_id:3,name:'هود',},
+        {id: 12,sheikh_id:3,name:'يوسف',},
+        {id: 13,sheikh_id:3,name:'الرعد',},
+        {id: 14,sheikh_id:3,name:'إبراهيم',},
+        {id: 15,sheikh_id:3,name:'الحجر',},
+
+        {id: 1,sheikh_id:4,name:'الفاتحة', },
+        {id: 1,sheikh_id:4,name:'البقرة',},
+        {id: 1,sheikh_id:4,name:'آل عمران',},
+        {id: 1,sheikh_id:4,name:'النساء',},
+        {id: 1,sheikh_id:4,name:'المائدة',},
+        {id: 1,sheikh_id:4,name:'الأنعام',},
+        {id: 1,sheikh_id:4,name:'الأعراف',},
+        {id: 1,sheikh_id:4,name:'الأنفال',},
+        {id: 1,sheikh_id:4,name:'التوبة',},
+        {id: 1,sheikh_id:4,name:'يونس',},
+        {id: 1,sheikh_id:4,name:'هود',},
+        {id: 1,sheikh_id:4,name:'يوسف',},
+        {id: 1,sheikh_id:4,name:'الرعد',},
+        {id: 1,sheikh_id:4,name:'إبراهيم',},
+        {id: 1,sheikh_id:4,name:'الحجر',},
+
+        {id: 1,sheikh_id:5,name:'الفاتحة',},
+        {id: 2,sheikh_id:5,name:'البقرة',},
+        {id: 3,sheikh_id:5,name:'آل عمران',},
+        {id: 4,sheikh_id:5,name:'النساء',},
+        {id: 5,sheikh_id:5,name:'المائدة',},
+        {id: 6,sheikh_id:5,name:'الأنعام',},
+        {id: 7,sheikh_id:5,name:'الأعراف',},
+        {id: 8,sheikh_id:5,name:'الأنفال',},
+        {id: 9,sheikh_id:5,name:'التوبة',},
+        {id: 10,sheikh_id:5,name:'يونس',},
+        {id: 11,sheikh_id:5,name:'هود',},
+        {id: 12,sheikh_id:5,name:'يوسف',},
+        {id: 13,sheikh_id:5,name:'الرعد',},
+        {id: 14,sheikh_id:5,name:'إبراهيم',},
+        {id: 15,sheikh_id:5,name:'الحجر',},
+
+        {id: 1,sheikh_id:6,name:'الفاتحة',},
+        {id: 2,sheikh_id:6,name:'البقرة',},
+        {id: 3,sheikh_id:6,name:'آل عمران',},
+        {id: 4,sheikh_id:6,name:'النساء',},
+        {id: 5,sheikh_id:6,name:'المائدة',},
+        {id: 6,sheikh_id:6,name:'الأنعام',},
+        {id: 7,sheikh_id:6,name:'الأعراف',},
+        {id: 8,sheikh_id:6,name:'الأنفال',},
+        {id: 9,sheikh_id:6,name:'التوبة',},
+        {id: 10,sheikh_id:6,name:'يونس',},
+        {id: 11,sheikh_id:6,name:'هود',},
+        {id: 12,sheikh_id:6,name:'يوسف',},
+        {id: 13,sheikh_id:6,name:'الرعد',},
+        {id: 14,sheikh_id:6,name:'إبراهيم',},
+        {id: 15,sheikh_id:6,name:'الحجر',},
+
+        {id: 1,sheikh_id:7,name:'الفاتحة',},
+        {id: 2,sheikh_id:7,name:'البقرة',},
+        {id: 3,sheikh_id:7,name:'آل عمران',},
+        {id: 4,sheikh_id:7,name:'النساء',},
+        {id: 5,sheikh_id:7,name:'المائدة',},
+        {id: 6,sheikh_id:7,name:'الأنعام',},
+        {id: 7,sheikh_id:7,name:'الأعراف',},
+        {id: 8,sheikh_id:7,name:'الأنفال',},
+        {id: 9,sheikh_id:7,name:'التوبة',},
+        {id: 10,sheikh_id:7,name:'يونس',},
+        {id: 11,sheikh_id:7,name:'هود',},
+        {id: 12,sheikh_id:7,name:'يوسف',},
+        {id: 13,sheikh_id:7,name:'الرعد',},
+        {id: 14,sheikh_id:7,name:'إبراهيم',},
+        {id: 15,sheikh_id:7,name:'الحجر',},
+]
+
+const fields = ['id', 'name', 'type', 'verses'];
+const fields2 = ['id', 'name', 'image'];
+const fields3 = ['id', 'name', 'audio'];
+const opts = { fields };
+const opts2 = { fields2 };
+const opts3 = { fields3 };
+
+try {
+    const parser = new Parser(opts);
+    const parser2 = new Parser(opts2);
+    const parser3 = new Parser(opts3);
+    const csv = parser.parse(surahs);
+    const csv2 = parser2.parse(sheikhs);
+    const csv3 = parser3.parse(surahsAudio);
+    fs.writeFileSync('surahs.csv', csv);
+    fs.writeFileSync('sheikhs.csv', csv2);
+    fs.writeFileSync('surahsAudio.csv', csv3);
+    console.log('CSV file has been created successfully');
+} catch (err) {
+    console.error(err);
+}
