@@ -6,3 +6,6 @@ expo-env.d.ts
 # @end expo-cli
 config.bat
 node_modules
+
+# Expo local state
+.expo/
