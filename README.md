@@ -1,176 +1,76 @@
-# 📖 TradrlyQuranApp
+# TradrlyQuranApp
 
-TradrlyQuranApp is a cross-platform mobile application built with **React Native** that allows users to read, listen to, and explore the Holy Qur’an, along with essential Islamic resources such as supplications, adhkar, and prayer times.
+An early-stage Qur'an reading app for Android, iOS and web, built with React Native and Expo during a first-year internship (July 2024).
 
-This project was developed as part of a **first-year internship**, following a detailed functional and technical specification (*cahier des charges*).
+> **Status: prototype.** The repository contains the project setup, routing and a branded welcome screen. The reading, audio, adhkar and prayer-time features below are the **planned scope** from the internship specification and are not implemented yet.
 
----
+## What it does today
 
-## 🕌 Project Objectives
+- Boots an Expo Router app (file-based routing) with a root `Stack` navigator (`app/_layout.tsx`)
+- Shows a branded welcome screen: the app logo centered on a dark slate background (`app/welcomeScreen.tsx`)
+- Runs on Android, iOS and web from one TypeScript codebase (`app.json`, `npm run android|ios|web`)
+- Supports light/dark system themes through shared theming helpers (`hooks/useThemeColor.ts`, `constants/Colors.ts`, `components/ThemedText.tsx`)
 
-The main goal of TradrlyQuranApp is to facilitate access to the Holy Qur’an and Islamic resources for Muslims worldwide, regardless of their level of Arabic or Islamic knowledge.
+## Planned scope (from the internship specification)
 
-### Specific Objectives
-- Easy access to the Holy Qur’an (text and audio)
-- Support Qur’an learning through recitations and translations
-- Improve understanding of Qur’anic meanings
-- Assist daily Islamic practice (prayers, adhkar, Qibla)
-- Encourage connection within the Muslim community
+The specification (*cahier des charges*) written for the internship defines four modules:
 
----
+- **Qur'an reading**: full Arabic text, navigation by surah / juz' / verse, search, bookmarks, night mode
+- **Audio recitation**: reciter selection, background playback, repeat and loop
+- **Supplications and adhkar**: categorized duas, translations, dhikr counter, reminders
+- **Prayer times and Qibla**: location-based times, calculation methods, adhan notifications, Qibla compass
 
-## 🎯 Target Audience
+## Tech stack
 
-This application is intended for:
-- Muslims of all ages and backgrounds
-- Users learning to read or memorize the Qur’an
-- Users seeking better understanding of the Qur’an
-- Users wishing to practice Islam more regularly
-- Users interested in daily Islamic reminders
+- **React Native 0.74** with **Expo SDK 51**
+- **Expo Router 3** (file-based navigation, typed routes enabled)
+- **TypeScript** (strict mode)
+- **Jest** with `jest-expo` (snapshot test for `ThemedText`)
+- `react-native-reanimated`, `react-native-gesture-handler`, `@expo/vector-icons`
 
----
+## Getting started
 
-## 📊 Success Indicators
+Requirements: Node.js LTS and the Expo Go app (or an Android emulator / iOS simulator).
 
-The success of the application can be measured by:
-- Number of application downloads
-- Number of active users
-- Time spent within the application
-- User engagement (shares, favorites, interactions)
-- User satisfaction
+```bash
+git clone https://github.com/amine-mosbah/TradrlyQuranApp.git
+cd TradrlyQuranApp
+npm install
+npm start            # expo start, then scan the QR code with Expo Go
+```
 
----
+Other scripts from `package.json`:
 
-## ✨ Core Features
+| Command | What it does |
+| --- | --- |
+| `npm run android` | Start Expo and open on an Android device/emulator |
+| `npm run ios` | Start Expo and open on the iOS simulator |
+| `npm run web` | Start Expo for the web |
+| `npm test` | Run Jest in watch mode |
+| `npm run lint` | Run `expo lint` |
 
-### 📖 Qur’an Reading
-- Complete Arabic text of the Holy Qur’an
-- Navigation by Surah, Juz’, verse, or keyword
-- Advanced search functionality
-- Adjustable font size and style
-- Multiple reading modes (page-by-page, continuous scrolling)
-- Night mode for comfortable reading
-- Bookmarks and favorites
+## Project structure
 
----
+```
+app/                 Expo Router routes
+  _layout.tsx        Root Stack navigator
+  welcomeScreen.tsx  Welcome screen with the app logo
+screens/             Copy of the welcome screen (outside the router)
+components/          Themed UI components (ThemedText, ThemedView, ...)
+constants/Colors.ts  Light/dark color palette
+hooks/               Color-scheme and theme-color hooks
+assets/              App icon, splash screen, welcome logo, fonts
+app-example/         Default Expo template screens, kept for reference
+scripts/             Expo's reset-project helper
+```
 
-### 🎧 Qur’an Audio Recitation
-- Audio recitations by renowned Qur’an reciters
-- Background audio playback
-- Offline audio downloads
-- Verse and Surah repetition
-- Playback speed control
-- Loop mode
-- Resume from last listening position
+## Context
 
----
+Built by Mohamed Amine Ben Mosbah, software engineering student at ENISo (Tunisia), as a first-year internship project (summer 2024). Intended for educational use.
 
-### 🤲 Supplications & Adhkar
-- Authentic supplications from the Qur’an and Sunnah
-- Categorized by topic and occasion
-- Multilingual translations
-- Favorites management
-- Dhikr counter
-- Reminder notifications
+## Next steps
 
----
-
-### 🕋 Prayer Times & Qibla
-- Accurate prayer times based on user location
-- Multiple calculation methods (Umm al-Qura, Egyptian method, etc.)
-- Customizable prayer notifications (Adhan)
-- Qibla direction compass
-- Optional nearby mosque locator
-
----
-
-### 🌙 Additional Features
-- Sharing Qur’anic verses and supplications
-- Multi-language support
-- Elegant and modern UI
-- Accessibility-friendly design
-- Dark mode
-- Optimized performance and low battery consumption
-
----
-
-## 🧩 Use Case Overview
-
-Main user actions include:
-- Reading the Qur’an
-- Listening to Qur’an recitations
-- Viewing prayer times
-- Accessing supplications and daily adhkar
-
-These actions are managed through a simple and intuitive user interface connected to:
-- Qur’an text engine
-- Audio player
-- Prayer time calculation module
-- Supplications database
-
----
-
-## 🛠 Technical Stack
-
-- **Frontend:** React Native
-- **Platforms:** Android & iOS
-- **Architecture:** Component-based
-- **Localization:** Multi-language support
-- **Offline Support:** Audio caching and downloads
-- **Notifications:** Local prayer and reminder alerts
-
----
-
-## 🎨 Design Guidelines
-
-- Intuitive and user-friendly interface
-- Respect of Islamic principles (no explicit imagery)
-- Responsive and accessible design
-- Consistent typography and layout
-- Focus on readability and user comfort
-
----
-
-## 🧪 Testing & Deployment
-
-- Functional and UI testing
-- Performance and battery optimization
-- Bug fixing and validation
-- Deployment on:
-  - Google Play Store
-  - Apple App Store
-
----
-
-## 🔐 Privacy & Data Protection
-
-- No personal data collected without explicit user consent
-- User privacy fully respected
-- Compliance with mobile platform privacy guidelines
-
----
-
-## 🔄 Maintenance & Updates
-
-- Regular bug fixes
-- Performance improvements
-- Feature enhancements
-- Content updates (recitations, translations, supplications)
-
----
-
-## 📌 Project Status
-
-**Academic / Internship Project**
-
-This application was developed for educational purposes and demonstrates:
-- Mobile application development fundamentals
-- UI/UX design principles
-- API integration
-- Functional requirement analysis
-
----
-
-## 📜 License
-
-This project is intended for **educational use only**.
+- Add a Qur'an text data source and a surah list / reader screen
+- Add audio playback (e.g. `expo-av`) for recitations
+- Add prayer-time calculation and location permissions
+- Remove the Expo template leftovers (`app-example/`, `components/HelloWave.tsx`, ...)
